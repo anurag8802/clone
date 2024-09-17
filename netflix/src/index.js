@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import store from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+root.render(//root.render is basically used for making custom tags <br/>
   <React.StrictMode>
     <Provider store={store}>
       <App />

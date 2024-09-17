@@ -12,6 +12,7 @@ import SearchMovie from './SearchMovie';
 
 const Browse = () => {
     const user = useSelector(store => store.app.user);
+    //This toggle value might be used to switch between different views on the page (e.g., between the search results and movie lists).
     const toggle = useSelector(store => store.movie.toggle);
     const navigate = useNavigate();
 
@@ -22,15 +23,17 @@ const Browse = () => {
 
     useEffect(() => {
         if (!user) {
-            navigate("/");
+            navigate("/"); //If there is no user, it redirects the user to the login page.
         }
-    }, []);
+    }, []); //The empty dependency array ([]) means this effect runs only once when the component mounts.
     return (
         <div >
             <Header />
             <div>
                 {
                     toggle ? <SearchMovie /> : (
+ // The use of <>...</> (React Fragment) around <MainContainer /> and <MovieContainer /> 
+//  allows these elements to be grouped together without adding an extra node to the DOM.
                         <>
                             <MainContainer />
                             <MovieContainer />
